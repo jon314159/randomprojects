@@ -1,0 +1,53 @@
+Computer repair shop -- ideal model
+
+
+Customers - customerID, FirstName, LastName, Address, Email,PhoneNumber 
+
+RepairQueue -  read only table that shows the techs what needs to be done
+
+Device - deviceID, deviceType (laptop, desktop, tablet, etc...), repairID,ownerID will match customerID
+
+Repair- repairID, dateChecked In, techIDassigned,status,
+
+
+
+LaborHours - (repairID, techID,hoursWorked, rate(techID, certLevel))
+
+PartUsed- (partNumber, repairID)
+
+Parts- partNumber, name, cost, 
+
+
+Inventory- partNumber, Quantity
+
+
+Technicians - techId, fname, lname, phone#, email, certLevel
+
+
+
+Invoice-partsUsed, laborHours, rate, localTax, subtotal, total
+
+
+
+Buisness Rules
+
+*Client cannot have two repairs at the same time
+
+*The same part cannot be used twice on one repair, if a part is broken a new tag needs to be created and the old closed with repair comments saying that the part was damaged. 
+
+* 
+
+
+/*************************************************************\
+
+Meet the requirments 
+
+Employees- empID, metadata
+
+Customers, CustomerId, metadate, deviceID
+
+Device - DeviceId, descrip, owner(customerID)
+
+Repair - RepairID, CustomerID, deviceID, empID, pSku(eneter 0 for just labor),hours,repairComments
+
+Invoice - RepairID, CustomerId, subtotal =(hours*rate), tax (localTax*=subtotal), total(tax+subtotal), repairComments
